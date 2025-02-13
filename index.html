@@ -84,6 +84,16 @@
             }
         </style>
         <script>
+            function clickMe() {
+                document.getElementById("content").innerHTML = `
+                    <img
+                        src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG80MXNhcmlrNmZzNmo0bzZnOGo2azlrbTVlYmN3d2tpNXhiNndqcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kBvsdQcBKb5GpoNry7/giphy.gif"
+                        alt="Cute GIF"
+                        style="width: 100%; border-radius: 10px; animation: fadeIn 1.5s ease-in-out;"/>
+                    <h1>💖 HEYYY CHICKYY!!!! 💖</h1>
+                    <button onclick="proceed()">💞 Hellllloooooooooo 💞</button>
+                `;
+            }
             function proceed() {
                 document.getElementById("content").innerHTML =
                     "<p>It's our first ever Valentines ❤️</p>" +
@@ -118,24 +128,26 @@
                     <h1 style="font-size: 28px">YAYYY!!! Thank You for being my sweet, beautiful valentine Chicky 😘</h1>
                     <h1 style="font-size: 28px">You're the best person I could've ever asked for 💗💗💗</h1>
                     <h1 style="font-size: 28px">I LOVE YOU Atreyee 🌹🌹🌹</h1>
-
                 `;
             }
         </script>
     </head>
     <body>
-        <audio id="bgMusic" autoplay loop>
-            <source src="assets/song.wav" type="audio/mpeg" />
-        </audio>
+        <audio id="bg-music" src="assets/song.mp3" loop muted></audio>
+        <script>
+            document.addEventListener(
+                "click",
+                function () {
+                    let audio = document.getElementById("bg-music");
+                    audio.muted = false;
+                    audio.play();
+                },
+                { once: true }
+            ); // Ensures it only runs once
+        </script>
 
         <div class="container" id="content">
-            <img
-                src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMG80MXNhcmlrNmZzNmo0bzZnOGo2azlrbTVlYmN3d2tpNXhiNndqcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/kBvsdQcBKb5GpoNry7/giphy.gif"
-                alt="Cute GIF"
-                style="width: 100%; border-radius: 10px"
-            />
-            <h1>💖 HEYYY CHICKYY!!!! 💖</h1>
-            <button onclick="proceed()">💞 Hellllloooooooooo 💞</button>
+            <button onclick="clickMe()">Click Me!</button>
         </div>
     </body>
 </html>
